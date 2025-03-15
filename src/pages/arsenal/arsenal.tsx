@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/card/card";
 
-interface CaughtPokemon {
-  name: string;
-  customName: string;
-  sprites?: { front_default: string };
-}
-
-const Arsenal: React.FC<CaughtPokemon> = ({}) => {
+const Arsenal: React.FC = ({}) => {
   const [caughtPokemons, setCaughtPokemons] = useState<
     { name: string; nickname: string; sprite: string; cries: string }[]
   >([]);

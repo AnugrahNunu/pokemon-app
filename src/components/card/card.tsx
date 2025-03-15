@@ -71,7 +71,7 @@ const Card: React.FC<CardProps> = ({
             .play()
             .catch((error) => console.error("Error playing audio:", error));
         }}
-        className="relative flex flex-col justify-between items-center shadow-md rounded-lg p-4 text-center border border-white"
+        className="relative flex flex-col justify-between items-center shadow-md rounded-lg p-4 text-center border border-white max-h-[150px] min-h-[150px]"
       >
         <button
           onClick={() => onRemove?.(data.nickname)}
