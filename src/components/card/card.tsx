@@ -79,16 +79,18 @@ const Card: React.FC<CardProps> = ({
         >
           X
         </button>
-        <img
-          src={data.sprite}
-          alt=""
-          className="md:min-w-[75px] md:min-h-[75px]"
-        />
+        <div className="flex grow justify-center">
+          <img
+            src={data.sprite}
+            alt=""
+            className="max-w-[75px] md:min-w-[75px] max-h-[75px] md:min-h-[75px] object-contain"
+          />
+        </div>
         <div className="mt-2">
-          <p className="text-sm md:text-xl font-bold text-white">
+          <p className="text-xs md:text-xl font-bold text-white">
             {data.nickname}
           </p>
-          <p className="text-gray-500">({data.name})</p>
+          <p className="text-xs text-gray-500">({data.name})</p>
         </div>
       </div>
     );
@@ -117,18 +119,26 @@ const Card: React.FC<CardProps> = ({
         !isDetailAbility &&
         !isDetailMove &&
         !isDetailCatch && (
-          <div className="flex flex-col items-center">
-            <img
-              src={
-                sprites.versions["generation-v"]["black-white"].animated
-                  .front_default
-              }
-              alt={name}
-              className="min-w-[75px] min-h-[75px] object-contain"
-            />
-            <h1 className="text-xs font-semibold text-center mt-2 mb-3">
-              {name}
-            </h1>
+          <div className="flex flex-col grow items-center">
+            <div className="grow mt-4">
+              <img
+                src={
+                  sprites.versions["generation-v"]["black-white"].animated
+                    .front_default
+                }
+                alt={name}
+                className={`object-contain max-h-[75px] ${
+                  name === "wigglytuff" ||
+                  name === "hitmonchan" ||
+                  name === "togetic"
+                    ? "min-w-[50px]"
+                    : "min-w-[75px]"
+                }`}
+              />
+            </div>
+            <div className="text-end">
+              <h1 className="text-xs font-semibold text-center mb-2">{name}</h1>
+            </div>
           </div>
         )}
       {isDetailPic && (
